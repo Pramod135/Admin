@@ -1,0 +1,106 @@
+﻿@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@model Admin_Management.Models.TblBlog
+
+@{
+    ViewData["Title"] = "EditPage";
+}
+
+<hr />
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+           
+            <div class="card-body">
+                <h2 class="card-title text-center">Edit Blog</h2>
+                <hr>
+                <form asp-action="EditBlog" method="post" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="row">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Id" />
+                            <div class="col-md-6 form-group">
+                                <label>Name</label>
+                                <input asp-for="Name" name="Name" class="form-control form-control-rounded" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Url</label>
+                                <input asp-for="Url" name="Url" class="form-control form-control-rounded" />
+                                <span asp-validation-for="Url" class="text-danger"></span>
+                            </div>                           
+
+                         @*   <div class="col-md-6 form-group">
+                                <label>ImagePath</label>
+                                <input asp-for="ImagePath" name="ImagePath" value="@Model.ImagePath" class="form-control form-control-rounded" />
+                                <span asp-validation-for="IsActive" class="text-danger"></span>
+                            </div>*@
+
+
+                            <div class="col-md-6 form-group">
+                                <label asp-for="ImagePath" class="control-label"></label>
+                                <img src="@Model.ImagePath" height="80" width="200" />
+                                <input type="file" name="FileData" id="FileData" />
+                                <input type="hidden" name="ImagePath" value="@Model.ImagePath" />
+                            </div>
+
+
+                         @*   <div class="col-md-6 form-group">
+                                <label asp-for="ImagePath" class="control-label"></label>
+                                <input type="file" name="FileData" id="FileData" class="form-control py-2 rounded-pill mr-1 pr-5" />
+                                <input type="hidden" name="ImagePath" value="@Model.ImagePath" />
+                            </div>*@
+
+                            <div class=" col-md-6 form-group">
+                                <label>Category</label>
+                                <select class="form-control form-control-rounded" name="CatId" >
+
+                                    <option value="@Model.Cat.Id" selected>@Model.Cat.CatName</option>
+                                    @if (ViewBag.cattbl != null)
+                                    { 
+                                        
+                                        @foreach (var iten in ViewBag.cattbl)
+                                        {
+                                            <option value="@iten.Value">
+                                                @iten.Text
+
+                                            </option>
+                                        }
+
+                                    }                               
+                                </select>
+                            </div>
+
+                            <div class="col-12 form-group">
+                                <label>Title</label>
+                                <input asp-for="Title" name="Title" class="form-control form-control-rounded" />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 form-group">
+                                <label>About</label>
+                                <textarea asp-for="About" class="form-control form-control-rounded" name="About" id="textAreaExample1" rows="5"></textarea>
+                                <span asp-validation-for="About" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 form-group">
+                                <label>BlogContent</label>
+                                <textarea asp-for="BlogContent" class="form-control form-control-rounded" name="BlogContent" id="textAreaExample1" rows="15"></textarea>
+                                <span asp-validation-for="BlogContent" class="text-danger"></span>
+                            </div>
+
+                         
+                            <div class="col-12 form-group text-center">
+                                <input type="submit" value="EditBlog" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

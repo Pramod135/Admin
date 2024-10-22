@@ -1,0 +1,64 @@
+﻿@model Admin_Management.Models.TblUser
+@{
+    Layout = "/Views/Shared/_LoginLayout.cshtml";
+}
+
+
+<body class="bg-theme bg-theme1  pace-done" style="background-image: url(/Admin/images/bg-themes/1.png);">
+    <div class="card card-authentication1 mx-auto my-5">
+        <div class="card-body">
+            <div class="card-content p-2">
+                <div class="text-center">
+                    <img src="~/footer-logo.jpg" height="60" width="220" alt="logo icon">
+                </div>
+                <div class="card-title text-uppercase text-center py-3">Sign In</div>
+                <form asp-controller="Admin" asp-action="Login" method="post">
+                    
+                    <div class="form-group">
+                        <label>UserId</label>
+                        <div class="position-relative has-icon-right">
+                            <input type="text" name="UserId" id="UserId" class="form-control input-shadow" placeholder="Enter UserId">
+                            <div class="form-control-position">
+                                <i class="icon-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="position-relative has-icon-right">
+                            <input type="password" name="Password" id="Password" class="form-control input-shadow" placeholder="Enter Password">
+                            <div class="form-control-position">
+                                <i class="icon-lock"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (ViewBag.msg!=null)
+                    {
+                        <span class="text-danger">@ViewBag.msg</span>
+                    }
+                  
+
+                  @*  <div class="alert-danger text-center">     
+                        @if (ViewData["validate"] != null)
+                        {
+                            <span>@ViewData["validate"]</span>
+                        }            
+                    </div>*@
+
+                   @* <label>
+                        <input type="checkbox" asp-for="KeepLogin" />
+                        Keep Me Login
+                    </label>*@
+
+                    <button type="submit" class="btn btn-light btn-block">Sign In</button>
+                
+                </form>
+            </div>
+        </div>
+        <div class="card-footer text-center py-3">
+            <p class="text-warning mb-0"> Welcome to TechLab....</p>
+        </div>
+    </div>
+
+</body>

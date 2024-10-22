@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+ 
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center">Manage Page</h2>
+                <hr>
+                <form class="row g-3" asp-action="ManagePage"  asp-controller="Admin" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-md-6 form-group">
+                                <label for="input-6">Name</label>
+                                <input type="text" name="Name" class="form-control form-control-rounded" id="input-6" />
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="input-7">Url</label>
+                                <input type="text" name="Url" class="form-control form-control-rounded" id="input-7" />
+                            </div>
+                            <div class="col-12 form-group">
+                                <label for="input-8">Title</label>
+                                <input type="text" name="Title" class="form-control form-control-rounded" id="input-8" />
+                            </div>
+                            <div class="col-12 form-group">
+                                <label for="input-9">About</label>
+                                <textarea type="text" name="About" class="form-control form-control-rounded" id="input-9" rows="5"></textarea>
+                            </div>
+                            <div class="col-12 form-group">
+                                <label for="input-10">PageContent</label>
+                                <textarea type="text" name="PageContent" class="form-control form-control-rounded" id="input-10" rows="15"></textarea>
+                            </div>
+                         @*   <div class="col-12 form-group">
+                                <label for="input-10">IsAvtive</label>
+                                <input type="text" name="IsAvtive" class="form-control form-control-rounded" id="input-11" />
+                            </div>*@
+                        </div>
+                        <div class="form-group text-center m-4">
+                            <button type="submit" value="ManagePage" class="btn btn-success btn-round px-5"><i class="icon-lock"></i> Save</button>
+                            <a type="submit" href="/admin/manage-page" class="btn btn-danger btn-round px-5"><i class="icon-lock"></i> Clear</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                        

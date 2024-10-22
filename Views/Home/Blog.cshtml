@@ -1,0 +1,227 @@
+﻿@model IPagedList<Admin_Management.Models.TblBlog>
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+
+
+
+<style>
+    .ul.pagination {
+        display: inline-block;
+        margin: 0;
+        font-weight: bold;
+        text-decoration: underline;
+        /* border-radius: 5px;
+                    float: left;*/
+    }
+
+
+    ul.pagination li {
+        display: inline-block;
+        font-weight: bold;
+        text-decoration: underline;
+        border-radius: 5px;
+        padding: 10px;
+        /*  border: 1px solid #ddd;
+                    float: left;*/
+    }
+
+        ul.pagination li a {
+            background-color: #4CAF50;
+            color: red;
+            font-weight: normal;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .5s;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: underline;
+            border-radius: 5px;
+            padding: 10px;
+            /*  border: 1px solid #ddd;
+                        float: left;*/
+        }
+
+    .pagination .active {
+        background: blue;
+    }
+
+    ul.pagination li a.active {
+        background-color: #4CAF50;
+        color: green;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    ul.pagination li a:hover:not(.active) {
+        background-color: #ddd;
+    }
+</style>
+
+<style>
+    .border {
+        border: 1px solid #888;
+    }
+
+    .pagination {
+        display: flex;
+        padding-left: 0px;
+        list-style: none;
+        border-radius: 0.25rem;
+        justify-content: center;
+    }
+</style>
+
+
+<div class="services_section layout_padding padding_bottom_0">
+    <div class="container">
+        <h1 class="blog_text blog-tt">Blog</h1>
+        <div class="row blog-tt">
+            <div class="col-6"></div>
+            <form asp-action="Blog" method="get" class="col-6 blog-tt">
+                <div class="form-actions no-color">
+                    <p>
+                        <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" placeholder="search" />
+                        <input type="submit" value="Search" class="btn btn-outline-primary" />
+                    </p>
+                </div>
+            </form>
+
+            @Html.ActionLink("", "Blog", new { sortOrder = ViewBag.NameSortParm, currentFilter=ViewBag.CurrentFilter,@ViewBag.TotalItems})
+
+            @Html.ActionLink("", "Blog", new { sortOrder = ViewBag.UrlSortParm, currentFilter=ViewBag.CurrentFilter,@ViewBag.TotalItems})
+
+            @Html.ActionLink("", "Blog", new { sortOrder = ViewBag.TitleSortParm, currentFilter=ViewBag.CurrentFilter,@ViewBag.TotalItems})
+
+            @foreach (var item in Model)
+            {
+                @if (item.IsActive == true)
+                {
+                    <div class="col-6">
+                        <a class="call_box mt-4" href="@item.Url" target="_blank">
+
+                            <div class="call_image "><img src="@item.ImagePath" style="width:500px;height:250px;"></div>
+                        
+                            <h4 class="emergency_text ">@item.Title</h4>
+                            @Html.DisplayFor(modelItem => item.Cat.CatName)
+                            <span class="call_text ">@Tools.TimeAgo(item.RegDate)</span>
+                            @* <h5><a class="emergency_text" href="@item.Url" target="_blank">Click here..Url</a></h5>*@
+                            <p class="dolor_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                        </a>
+                        <h5><a class="emergency_text" href="@item.Url" target="_blank">@item.Title</a></h5>
+                    </div>
+
+
+                }
+            }
+
+        </div>
+        <br />
+    </div>
+</div>
+
+
+<div>total recods: @ViewBag.totalCount</div>
+
+ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Blog",
+new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter}))
+
+
+
+
+
+
+  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Our Blog</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-12 text-center d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end mb-md-5">
+              <a href="blog-single.html" class="block-20 img" style="background-image: url('images/image_1.jpg');">
+              </a>
+               @foreach (var item in Model)
+            {
+              <div class="text px-md-5 pt-4">
+              	<div class="meta mb-3">
+                  <div><a href="#">@Tools.TimeAgo(item.RegDate)</a></div>
+                  <div><a href="#">@item.Name</a></div>
+                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                </div>
+                <h3 class="heading mt-2"><a href="#">@item.About</a></h3>
+                <p>@item.Title</p>
+                <p><a href="blog-single.html" class="btn btn-primary">Continue <span class="icon-long-arrow-right"></span></a></p>
+              </div>
+              }
+            </div>
+          </div>
+         
+        </div>
+        <div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

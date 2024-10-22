@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center">User Page</h2>
+                <hr>
+                <form class="row g-3" asp-action="UserPage" asp-controller="Admin" method="post" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-md-6 form-group">
+                                <label>Image</label>
+                                <input type="file" name="FileData" class="form-control py-2 rounded-pill mr-1 pr-5" id="FileData" />
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label for="input-6">Name</label>
+                                <input type="text" name="Name" class="form-control form-control-rounded" id="input-6">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="input-7">Email</label>
+                                <input type="email" name="Email" class="form-control form-control-rounded" id="input-7">
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="input-8">Mobile</label>
+                                <input type="number" name="Mobile" class="form-control form-control-rounded" id="input-8">
+                            </div>
+
+                          @*  <div class="col-6 form-group">
+                                <label for="input-10">Avtive</label>
+                                <input type="text" name="Avtive" class="form-control form-control-rounded" id="input-13" />
+                            </div>*@
+                            <div class="col-6 form-group">
+                                <label for="input-9">UserId</label>
+                                <input type="text" name="UserId" class="form-control form-control-rounded" id="input-11" />
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="input-10">Password</label>
+                                <input type="text" name="Password" class="form-control form-control-rounded" id="input-10" />
+                            </div>      
+                        </div>
+                        <div class="form-group text-center m-4">
+                            <button type="submit" class="btn btn-success btn-round px-5"><i class="icon-lock"></i> Submit Page</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

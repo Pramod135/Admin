@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@model Admin_Management.Models.TblPage
+
+@{
+    ViewBag.Title = @Model.Title;
+   // ViewData["Title"] = "EditPage"+Model.Title;
+}
+
+<hr />
+<div class="row"> 
+    <div class="col-12">
+        <div class="card">
+            <div>
+                <a asp-action="AllPages">Back to List</a>
+            </div>
+            <div class="card-body">
+                <h2 class="card-title text-center">Edit Page</h2>
+                <hr>
+                <form asp-action="EditPage">
+                    <div class="card-body">
+                        <div class="row">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Id" />
+                            <div class="col-md-6 form-group">
+                                <label>Name</label>
+                                <input asp-for="Name" name="Name" class="form-control form-control-rounded" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Url</label>
+                                <input asp-for="Url" name="Url" class="form-control form-control-rounded" />
+                                <span asp-validation-for="Url"  class="text-danger"></span>
+                            </div>
+                       
+                            <div class="col-12 form-group">
+                                <label>Title</label>
+                                <input asp-for="Title" name="Title" class="form-control form-control-rounded" />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-12 form-group">
+                                <label>About</label>
+                                <textarea asp-for="About" class="form-control form-control-rounded" name="About" id="textAreaExample1" rows="5"></textarea>
+                                <span asp-validation-for="About" class="text-danger"></span>
+                            </div>
+                            <div class="col-12 form-group">
+                                <label>PageContent</label>
+                                <textarea asp-for="PageContent" class="form-control form-control-rounded" name="PageContent" id="textAreaExample1" rows="15"></textarea>
+                                <span asp-validation-for="PageContent" class="text-danger"></span>
+                            </div>
+                          
+                            <div class="col-12 form-group text-center">
+                                <input type="submit" value="EditPage" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

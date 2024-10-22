@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@model Admin_Management.Models.TblUser
+
+@{
+    ViewData["Title"] = "EditUser";
+}
+
+<hr />
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+
+            <div class="card-body">
+                <h2 class="card-title text-center">Profile</h2>
+                <hr>
+                <form asp-action="EditUser" asp-controller="Admin" method="post" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Id" />
+
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4 form-group">
+                                <img src="@Model.ImagePath" />
+                                <input type="file" name="FileData" id="FileData"  />
+                                <input type="hidden" name="ImagePath" value="@Model.ImagePath"/>
+                            </div> 
+                            <div class="col-md-4"></div>
+
+                          
+
+                            <div class="col-md-6 form-group">
+                                <label>Name</label>
+                                <input asp-for="Name" name="Name" class="form-control form-control-rounded" />
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <label>Email</label>
+                                <input asp-for="Email" name="Email" class="form-control form-control-rounded" />
+
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Mobile</label>
+                                <input asp-for="Mobile" name="Mobile" class="form-control form-control-rounded" />
+
+                            </div>
+                            <div class="col-6 form-group">
+                                <label>UserId</label>
+                                <input asp-for="UserId" class="form-control form-control-rounded" name="UserId" id="textAreaExample1" readonly />
+
+                            </div>
+                            <div class="col-6 form-group">
+                                <label></label>
+                                <input asp-for="Password" type="hidden" class="form-control" name="Password" id="textAreaExample1" />
+
+                            </div>
+                            <div class="col-12 form-group text-center">
+                                <input type="submit" value="Save" class="btn btn-primary form-control-rounded" />
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

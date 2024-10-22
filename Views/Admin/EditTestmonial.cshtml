@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@model Admin_Management.Models.tbltestimonial
+
+@{
+    ViewData["Title"] = "EditPage";
+}
+
+<hr />
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+           
+            <div class="card-body">
+                <h2 class="card-title text-center">Edit Testimonial</h2>
+                <hr>
+                <form asp-action="EditTestmonial" method="post" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="row">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Id" />
+                            <div class="col-md-6 form-group">
+                                <label>Name</label>
+                                <input asp-for="Name" name="Name" class="form-control form-control-rounded" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Profession</label>
+                                <input asp-for="Profession" name="Profession" class="form-control form-control-rounded" />
+                                <span asp-validation-for="Profession" class="text-danger"></span>
+                            </div>                           
+
+                            <div class="col-md-6 form-group">
+                                <label asp-for="Image" class="control-label"></label>
+                                <img src="@Model.Image" height="80" width="200" />
+                                <input type="file" name="FileData" id="FileData" />
+                                <input type="hidden" name="ImagePath" value="@Model.Image" />
+                            </div>      
+                          
+                            <div class="col-12 form-group">
+                                <label>Comments</label>
+                                <textarea asp-for="Comments" class="form-control form-control-rounded" name="Comments" id="textAreaExample1" rows="5"></textarea>
+                                <span asp-validation-for="Comments" class="text-danger"></span>
+                            </div>
+                                               
+                            <div class="col-12 form-group text-center">
+                                <input type="submit" value="EditBlog" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

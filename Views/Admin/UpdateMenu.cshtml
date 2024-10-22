@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model Admin_Management.Models.TblMenu
+
+@{
+    ViewData["Title"] = "UpdateMenu";
+}
+
+<hr />
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+          
+            <div class="card-body">
+                <h2 class="card-title text-center">Edit Menu</h2>
+                <hr>
+                <form asp-action="UpdateMenu">
+                    <div class="card-body">
+                        <div class="row">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="Id" />
+                            <div class="col-md-6 form-group">
+                                <label>Name</label>
+                                <input asp-for="Name" name="Name" class="form-control form-control-rounded" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Url</label>
+                                <input asp-for="Url" name="Url" class="form-control form-control-rounded" />
+                                <span asp-validation-for="Url" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-12 form-group">
+                                <label>Groups</label>
+                                <input asp-for="Groups" name="Groups" class="form-control form-control-rounded" />
+                                <span asp-validation-for="Groups" class="text-danger"></span>
+                            </div>
+
+                             <div class="col-12 form-group">
+                                <label>OrderNo</label>
+                                <input asp-for="OrderNo" name="OrderNo" class="form-control form-control-rounded" />
+                                <span asp-validation-for="OrderNo" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-12 form-group">
+                                <label>RawHtml</label>
+                                <textarea asp-for="RawHtml" class="form-control form-control-rounded" name="RawHtml" id="textAreaExample1" rows="10"></textarea>
+                                <span asp-validation-for="RawHtml" class="text-danger"></span>
+                            </div>
+                          
+                            <div class="col-12 form-group text-center">
+                                <input type="submit" value="UpdateMenu" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

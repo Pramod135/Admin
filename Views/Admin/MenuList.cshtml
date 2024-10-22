@@ -1,0 +1,222 @@
+﻿@model IEnumerable<Admin_Management.Models.TblMenu>
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .modalDialog {
+        position: fixed;
+        font-family: Arial, Helvetica, sans-serif;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 99999;
+        opacity: 0;
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+        pointer-events: none;
+    }
+
+        .modalDialog:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modalDialog > div {
+            width: 400px;
+            position: relative;
+            margin: 10% auto;
+            padding: 5px 20px 13px 20px;
+            border-radius: 10px;
+            background: #fff;
+            background: -moz-linear-gradient(#fff, #999);
+            background: -webkit-linear-gradient(#fff, #999);
+            background: -o-linear-gradient(#fff, #999);
+        }
+
+    .close {
+        background: #606061;
+        color: #FFFFFF;
+        line-height: 25px;
+        position: absolute;
+        right: -12px;
+        text-align: center;
+        top: -10px;
+        width: 24px;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+        box-shadow: 1px 1px 3px #000;
+    }
+
+        .close:hover {
+            background: #00d9ff;
+        }
+</style>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="text-success text-center">Menu Details</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Url
+                                </th>
+                                <th>
+                                    Groups
+                                </th>
+                                <th>
+                                    OrderNo
+                                </th>
+                                <th>
+                                    Active
+                                </th>
+
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Url)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Groups)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OrderNo)
+                                    </td>
+                                    <td>
+                                        <form asp-action="UpdateMenuStatus" method="post">
+                                            
+                                            <input type="hidden" name="id" value="@item.Id" />
+                                            <input  type="checkbox" onclick="this.form.submit();" name="menustatus" asp-for="@item.Active" />
+                                          
+                                        </form>
+                                    </td>
+
+                                  @*  <td>
+                                        <div>
+                                            <a asp-action="UpdateMenu" class="btn btn-success" asp-route-id="@item.Id">Edit</a> |
+                                            <a asp-action="DeleteMenu" class="btn btn-danger" asp-route-id="@item.Id">Delete</a>
+                                        </div>
+                                    </td>
+                                    *@
+                                    <td>
+                                        <div>
+                                            <a asp-action="UpdateMenu" class="btn btn-success" asp-route-id="@item.Id">Edit</a> |
+                                            <a href="#openModal+@item.Id" class="btn btn-danger" role="button">Delete</a>
+                                        </div>
+
+                                        <div id="openModal+@item.Id" class="modalDialog">
+                                            <div>
+                                                <a href="#close" title="Close" class="text-danger close">X</a>
+
+                                                <h2 class="text-danger">Alert Box</h2>
+                                                <p class="text-danger">are you sure you want to delete?</p>
+                                                <div class="row">
+                                                    <div class="col-3">
+                                                        <form asp-action="DeleteMenu" method="post">
+                                                            <input type="hidden" name="Id" value="@item.Id" />
+                                                            <input type="submit" value="Yes" class="btn btn-danger" />|
+                                                        </form>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <a href="#close" class="btn btn-danger">No</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+﻿
+@model Admin_Management.Models.TblPage
+
+
+@*html code convert to web*@
+@if (Model!=null && Model.Name != null && Model.IsActive==true)
+{   
+    @Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.PageContent))
+    @* @Model.PageContent*@
+}
+
+else{
+
+    <figure class="wp-block-image">
+        <picture decoding="async">
+            <source type="image/webp" srcset="https://colorlib.com/wp/wp-content/uploads/sites/2/404-error-template-11.png.webp">
+            <img decoding="async" src="https://colorlib.com/wp/wp-content/uploads/sites/2/404-error-template-11.png" alt="" width="1920" height="933" loading="lazy" fetchpriority="low">
+        </picture>
+    </figure>
+
+  @*  <picture class="blog-single-media-img wpex-align-middle" decoding="async" itemprop="image">
+        <source type="image/webp" srcset="https://colorlib.com/wp/wp-content/uploads/sites/2/404-error-page-templates.jpg.webp">
+        <img width="1200" height="686" src="https://colorlib.com/wp/wp-content/uploads/sites/2/404-error-page-templates.jpg" alt="404 error page templates" decoding="async" itemprop="image" loading="lazy" fetchpriority="low">
+    </picture>*@
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

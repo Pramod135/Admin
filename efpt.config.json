@@ -1,0 +1,65 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "Admin_dbContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Data",
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Admin_Management",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[tbl_Blog]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbl_Category]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbl_Enquiry]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbl_Menu]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbl_Page]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbl_Subscribe]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbl_User]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "HUB-201\\SQLEXPRESS.Admin_db",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": true,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

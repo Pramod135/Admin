@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center">Blog Page</h2>
+                <hr>
+                <form class="row g-3" asp-action="AddBlog" asp-controller="Admin" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="input-6">Name</label>
+                                <input type="text" name="Name" class="form-control form-control-rounded" id="input-6">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="input-7">Url</label>
+                                <input type="text" name="Url" class="form-control form-control-rounded" id="input-7">
+                            </div>
+
+                            @*  <div class="col-6 form-group">
+                            <label for="input-8">ImagePath</label>
+                            <input type="file" name="ImagePath" value="@Model." class="form-control form-control-rounded" id="input-9">
+                            </div>*@
+
+                            <div class="col-md-6 form-group">
+                                <label>Image</label>
+                                <input type="file" name="FileData" class="form-control py-2 rounded-pill mr-1 pr-5" id="FileData" />
+                            </div>
+
+                            <div class=" col-md-6 form-group">
+                                <label>Category</label>
+                                <select class="form-control form-control-rounded" name="CatId">
+                                    <option value="0" selected>-select category-</option>
+                                    @if (ViewBag.cattbl != null)
+                                    {
+                                        @foreach (var iten in ViewBag.cattbl)
+                                        {
+                                            <option value="@iten.Value">
+                                                @iten.Text
+                                            </option>
+                                        }
+                                    }
+                                </select>
+
+                            </div>
+
+                            <div class="col-12 form-group">
+                                <label for="input-8">Title</label>
+                                <input type="text" name="Title" class="form-control form-control-rounded" id="input-8">
+                            </div>
+
+                            <div class="col-12 form-group">
+                                <label for="input-9">About</label>
+                                <textarea type="text" name="About" class="form-control form-control-rounded" id="input-11" rows="5" required></textarea>
+                            </div>
+                            <div class="col-12 form-group">
+                                <label for="input-10">BlogContent</label>
+                                <textarea type="text" name="BlogContent" class="form-control form-control-rounded" id="input-10" rows="15" required></textarea>
+                            </div>
+
+                        </div>
+                        <div class="form-group text-center m-4">
+                            <button type="submit" class="btn btn-light btn-round px-5"><i class="icon-lock"></i> Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

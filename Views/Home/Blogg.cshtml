@@ -1,0 +1,33 @@
+﻿@model Admin_Management.Models.TblBlog
+
+
+@if (Model != null)
+{
+    <div class="services_section layout_padding padding_bottom_0">
+        <div class="container">
+            <h1 class="heading fs-32 fs-lg-60 fw-700 mb-40 text-center">@Model.Title</h1>
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="call_box mt-2">
+                        <div class="call_image"><img src="@Model.ImagePath"></div>
+                        <h2>@Model.Url</h2>
+                        <span class="call_text">@Tools.TimeAgo(Model.RegDate)</span>                            
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                   @* <div class="call_box mt-2">*@
+                    <div class="mt-2">
+                        @Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.BlogContent))                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
